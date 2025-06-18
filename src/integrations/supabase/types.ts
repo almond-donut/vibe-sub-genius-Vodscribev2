@@ -9,7 +9,93 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      [_ in never]: never
+      processing_jobs: {
+        Row: {
+          completed_at: string | null
+          created_at: string | null
+          file_paths: Json | null
+          id: string
+          is_preview: boolean | null
+          source_language: string | null
+          status: string | null
+          target_language: string | null
+          tone_preference: string | null
+          user_id: string
+          video_duration: number | null
+          video_url: string
+        }
+        Insert: {
+          completed_at?: string | null
+          created_at?: string | null
+          file_paths?: Json | null
+          id?: string
+          is_preview?: boolean | null
+          source_language?: string | null
+          status?: string | null
+          target_language?: string | null
+          tone_preference?: string | null
+          user_id: string
+          video_duration?: number | null
+          video_url: string
+        }
+        Update: {
+          completed_at?: string | null
+          created_at?: string | null
+          file_paths?: Json | null
+          id?: string
+          is_preview?: boolean | null
+          source_language?: string | null
+          status?: string | null
+          target_language?: string | null
+          tone_preference?: string | null
+          user_id?: string
+          video_duration?: number | null
+          video_url?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          billing_cycle_start: string | null
+          created_at: string | null
+          credits_remaining: number | null
+          credits_total: number | null
+          email: string | null
+          full_name: string | null
+          id: string
+          preview_minutes_limit: number | null
+          preview_minutes_used: number | null
+          subscription_tier: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          billing_cycle_start?: string | null
+          created_at?: string | null
+          credits_remaining?: number | null
+          credits_total?: number | null
+          email?: string | null
+          full_name?: string | null
+          id: string
+          preview_minutes_limit?: number | null
+          preview_minutes_used?: number | null
+          subscription_tier?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          billing_cycle_start?: string | null
+          created_at?: string | null
+          credits_remaining?: number | null
+          credits_total?: number | null
+          email?: string | null
+          full_name?: string | null
+          id?: string
+          preview_minutes_limit?: number | null
+          preview_minutes_used?: number | null
+          subscription_tier?: string | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -64,8 +63,13 @@ const Index = () => {
               <a href="#examples" className="text-slate-600 hover:text-blue-600 transition-colors">Examples</a>
             </div>
             <div className="flex items-center space-x-4">
-              <Button variant="ghost" className="text-slate-600">Login</Button>
-              <Button className="bg-gradient-to-r from-blue-600 to-green-500 text-white hover:from-blue-700 hover:to-green-600">
+              <Button variant="ghost" className="text-slate-600" onClick={() => window.location.href = '/auth'}>
+                Login
+              </Button>
+              <Button 
+                className="bg-gradient-to-r from-blue-600 to-green-500 text-white hover:from-blue-700 hover:to-green-600"
+                onClick={() => window.location.href = '/auth'}
+              >
                 Start Free Trial
               </Button>
             </div>
@@ -74,56 +78,65 @@ const Index = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-16 pb-24 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <Badge className="mb-4 bg-green-100 text-green-800 hover:bg-green-100">
-              🎉 Finally! AI that actually gets Korean streamer humor
-            </Badge>
-            <h1 className="text-4xl md:text-6xl font-bold text-slate-800 mb-6">
-              Stop Missing The
-              <span className="bg-gradient-to-r from-blue-600 to-green-500 bg-clip-text text-transparent"> Jokes</span>
-            </h1>
-            <p className="text-xl text-slate-600 mb-8 max-w-3xl mx-auto">
-              Context-aware subtitles that capture personality, slang, and culture - not just words. 
-              Finally, AI that doesn't suck the soul out of your favorite content.
-            </p>
-            
-            {/* Animated Comparison Demo */}
-            <div className="max-w-4xl mx-auto mb-12">
-              <ComparisonDemo 
-                korean={examples[currentExample].korean}
-                generic={examples[currentExample].generic}
-                vodscribe={examples[currentExample].vodscribe}
-                context={examples[currentExample].context}
-              />
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button size="lg" className="bg-gradient-to-r from-blue-600 to-green-500 text-white hover:from-blue-700 hover:to-green-600 px-8 py-4">
-                <Play className="w-5 h-5 mr-2" />
-                See Real Examples
-              </Button>
-              <Button size="lg" variant="outline" className="border-2 border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-4">
-                Stop Missing Out
-              </Button>
-            </div>
-
-            <div className="mt-8 flex justify-center items-center space-x-8 text-sm text-slate-500">
-              <div className="flex items-center">
-                <Star className="w-4 h-4 text-yellow-400 mr-1" />
-                <span>4.9/5 from beta users</span>
-              </div>
-              <div className="flex items-center">
-                <Users className="w-4 h-4 mr-1" />
-                <span>2,000+ streamers subtitled</span>
-              </div>
-              <div className="flex items-center">
-                <Clock className="w-4 h-4 mr-1" />
-                <span>Average 15min processing</span>
-              </div>
-            </div>
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <Badge className="mb-6 bg-blue-100 text-blue-800 border-blue-200">
+            🎉 Preview Gratis 15 Menit dengan Login!
+          </Badge>
+          <h1 className="text-4xl md:text-6xl font-bold text-slate-800 mb-6">
+            Subtitles That Actually
+            <span className="bg-gradient-to-r from-blue-600 to-green-500 bg-clip-text text-transparent"> Get The Joke</span>
+          </h1>
+          <p className="text-xl text-slate-600 mb-8 max-w-3xl mx-auto">
+            Stop missing out on Korean stream culture. Our AI doesn't just translate - it captures the memes, slang, and personality that makes content actually fun to watch.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            <Button 
+              size="lg" 
+              className="bg-gradient-to-r from-blue-600 to-green-500 text-white hover:from-blue-700 hover:to-green-600"
+              onClick={() => window.location.href = '/auth'}
+            >
+              <Play className="mr-2 h-4 w-4" />
+              Try Free Preview (15 min)
+            </Button>
+            <Button size="lg" variant="outline">
+              Watch Demo
+            </Button>
           </div>
+
+          {/* Live Example */}
+          <Card className="max-w-2xl mx-auto bg-white/50 backdrop-blur-sm">
+            <CardHeader>
+              <CardTitle className="flex items-center justify-center gap-2">
+                <Zap className="w-5 h-5 text-blue-600" />
+                Live Translation Comparison
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="bg-slate-800 text-white p-4 rounded-lg mb-4">
+                <p className="text-lg font-medium">{examples[currentExample].korean}</p>
+                <Badge variant="secondary" className="mt-2">{examples[currentExample].context}</Badge>
+              </div>
+              
+              <div className="grid md:grid-cols-2 gap-4">
+                <div className="bg-red-50 border border-red-200 p-4 rounded-lg">
+                  <div className="flex items-center gap-2 mb-2">
+                    <XCircle className="w-4 h-4 text-red-600" />
+                    <span className="font-medium text-red-800">Generic AI</span>
+                  </div>
+                  <p className="text-red-700">"{examples[currentExample].generic}"</p>
+                </div>
+                
+                <div className="bg-green-50 border border-green-200 p-4 rounded-lg">
+                  <div className="flex items-center gap-2 mb-2">
+                    <CheckCircle className="w-4 h-4 text-green-600" />
+                    <span className="font-medium text-green-800">VODSCRIBE</span>
+                  </div>
+                  <p className="text-green-700">"{examples[currentExample].vodscribe}"</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </section>
 
@@ -239,28 +252,26 @@ const Index = () => {
       {/* Testimonials */}
       <TestimonialSection />
 
-      {/* Final CTA */}
-      <section className="py-16 bg-gradient-to-r from-blue-600 to-green-500">
+      {/* CTA Section */}
+      <section className="py-20 bg-gradient-to-r from-blue-600 to-green-500">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Ready to Finally Understand the Humor?
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            Ready to Actually Understand Korean Streams?
           </h2>
           <p className="text-xl text-blue-100 mb-8">
-            Join thousands of viewers who actually get why everyone's laughing.
+            Join thousands of viewers who finally get the jokes. Start with 15 minutes free!
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-50 px-8 py-4">
-              Start Free Trial - No Credit Card
+            <Button 
+              size="lg" 
+              className="bg-white text-blue-600 hover:bg-slate-100"
+              onClick={() => window.location.href = '/auth'}
+            >
+              Start Free Preview
             </Button>
-            <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4">
-              See More Examples
+            <Button size="lg" variant="outline" className="text-white border-white hover:bg-white/10">
+              View Pricing
             </Button>
-          </div>
-          
-          <div className="mt-8">
-            <p className="text-blue-100 text-sm">
-              <span className="font-semibold">Anti-Boring Guarantee:</span> If our subs are as boring as generic AI tools, full refund - no questions asked.
-            </p>
           </div>
         </div>
       </section>
