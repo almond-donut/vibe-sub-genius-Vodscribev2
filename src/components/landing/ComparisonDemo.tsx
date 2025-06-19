@@ -78,7 +78,7 @@ export const ComparisonDemo = ({ korean, chinese, japanese, generic, vodscribe, 
       
       {/* Original Text */}
       <div className="mb-6 text-center">
-        <div className={`inline-block p-4 bg-white/20 dark:bg-slate-800/20 backdrop-blur-md rounded-lg border border-white/30 dark:border-slate-600/30 transition-all duration-500 ${
+        <div className={`inline-block p-4 bg-white/40 dark:bg-slate-800/40 backdrop-blur-md rounded-lg border border-white/50 dark:border-slate-600/50 transition-all duration-500 ${
           typingStage >= 1 ? 'opacity-100 transform scale-100' : 'opacity-0 transform scale-95'
         }`}>
           <p className="text-lg font-medium text-slate-800 dark:text-slate-300">{language} Stream:</p>
@@ -89,7 +89,7 @@ export const ComparisonDemo = ({ korean, chinese, japanese, generic, vodscribe, 
       {/* Comparison Cards */}
       <div className="grid md:grid-cols-2 gap-6">
         {/* Generic AI */}
-        <Card className={`border-red-200 dark:border-red-800/50 bg-red-50/50 dark:bg-red-900/20 backdrop-blur-md transition-all duration-500 ${
+        <Card className={`border-red-200 dark:border-red-800/50 bg-red-50/70 dark:bg-red-900/40 backdrop-blur-md transition-all duration-500 ${
           typingStage >= 2 ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
         }`}>
           <CardContent className="p-6 text-center">

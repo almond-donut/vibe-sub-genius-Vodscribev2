@@ -16,12 +16,13 @@ const AppContent = () => {
   const { user, loading, signOut } = useAuth();
 
   if (loading) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 flex items-center justify-center">
+    return (      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 flex items-center justify-center">
         <div className="text-center">
-          <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-green-500 rounded-lg flex items-center justify-center mx-auto mb-4">
-            <span className="text-white font-bold text-sm">V</span>
-          </div>
+          <img 
+            src="/logo_update.png" 
+            alt="VODSCRIBE Logo" 
+            className="w-12 h-12 rounded-lg object-cover mx-auto mb-4"
+          />
           <p className="text-slate-600">Loading...</p>
         </div>
       </div>

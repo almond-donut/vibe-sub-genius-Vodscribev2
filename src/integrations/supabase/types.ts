@@ -54,8 +54,7 @@ export type Database = {
         }
         Relationships: []
       }
-      profiles: {
-        Row: {
+      profiles: {        Row: {
           billing_cycle_start: string | null
           created_at: string | null
           credits_remaining: number | null
@@ -65,10 +64,11 @@ export type Database = {
           id: string
           preview_minutes_limit: number | null
           preview_minutes_used: number | null
+          preview_submissions_limit: number | null
+          preview_submissions_used: number | null
           subscription_tier: string | null
           updated_at: string | null
-        }
-        Insert: {
+        }        Insert: {
           billing_cycle_start?: string | null
           created_at?: string | null
           credits_remaining?: number | null
@@ -78,10 +78,11 @@ export type Database = {
           id: string
           preview_minutes_limit?: number | null
           preview_minutes_used?: number | null
+          preview_submissions_limit?: number | null
+          preview_submissions_used?: number | null
           subscription_tier?: string | null
           updated_at?: string | null
-        }
-        Update: {
+        }        Update: {
           billing_cycle_start?: string | null
           created_at?: string | null
           credits_remaining?: number | null
@@ -91,6 +92,8 @@ export type Database = {
           id?: string
           preview_minutes_limit?: number | null
           preview_minutes_used?: number | null
+          preview_submissions_limit?: number | null
+          preview_submissions_used?: number | null
           subscription_tier?: string | null
           updated_at?: string | null
         }

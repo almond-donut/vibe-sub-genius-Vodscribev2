@@ -29,9 +29,8 @@ export const HowItWorks = () => {
       color: "text-orange-600"
     }
   ];
-
   return (
-    <section className="py-16 bg-slate-50/80 dark:bg-slate-800/80 backdrop-blur-md relative">
+    <section className="py-16 bg-slate-50/90 dark:bg-slate-800/90 backdrop-blur-md relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-800 dark:text-white mb-4">
@@ -49,9 +48,9 @@ export const HowItWorks = () => {
                 <div className="hidden md:block absolute top-20 left-full w-full h-0.5 bg-gradient-to-r from-blue-200/50 to-green-200/50 z-0" />
               )}
               
-              <Card className="relative z-10 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-2 bg-white/50 dark:bg-slate-800/50 backdrop-blur-md border border-white/30 dark:border-slate-600/30">
+              <Card className="relative z-10 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-2 bg-white/70 dark:bg-slate-800/70 backdrop-blur-md border border-white/40 dark:border-slate-600/40">
                 <CardContent className="p-8">
-                  <div className={`w-16 h-16 rounded-full bg-gradient-to-r from-blue-100/80 to-green-100/80 dark:from-blue-900/80 dark:to-green-900/80 backdrop-blur-sm flex items-center justify-center mx-auto mb-6 border border-white/30 dark:border-slate-600/30`}>
+                  <div className={`w-16 h-16 rounded-full bg-gradient-to-r from-blue-100/90 to-green-100/90 dark:from-blue-900/90 dark:to-green-900/90 backdrop-blur-sm flex items-center justify-center mx-auto mb-6 border border-white/40 dark:border-slate-600/40`}>
                     <step.icon className={`w-8 h-8 ${step.color}`} />
                   </div>
                   
@@ -67,21 +66,20 @@ export const HowItWorks = () => {
           ))}
         </div>
 
-        <div className="mt-16 text-center">
-          <div className="bg-gradient-to-r from-blue-50/80 to-green-50/80 dark:from-blue-900/20 dark:to-green-900/20 backdrop-blur-md rounded-2xl p-8 max-w-4xl mx-auto border border-white/30 dark:border-slate-600/30">
+        <div className="mt-16 text-center">          <div className="bg-gradient-to-r from-blue-50/90 to-green-50/90 dark:from-blue-900/40 dark:to-green-900/40 backdrop-blur-md rounded-2xl p-8 max-w-4xl mx-auto border border-white/40 dark:border-slate-600/40">
             <h3 className="text-2xl font-bold text-slate-800 dark:text-white mb-4">
               Smart Processing Times
             </h3>
             <div className="grid md:grid-cols-3 gap-6 text-center">
-              <div className="bg-white/30 dark:bg-slate-800/30 backdrop-blur-sm rounded-lg p-4 border border-white/30 dark:border-slate-600/30">
+              <div className="bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm rounded-lg p-4 border border-white/40 dark:border-slate-600/40">
                 <p className="text-lg font-semibold text-blue-600 dark:text-blue-400">⚡ Peak Hours</p>
                 <p className="text-slate-600 dark:text-slate-300">6AM-8PM: 10-30 minutes</p>
               </div>
-              <div className="bg-white/30 dark:bg-slate-800/30 backdrop-blur-sm rounded-lg p-4 border border-white/30 dark:border-slate-600/30">
+              <div className="bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm rounded-lg p-4 border border-white/40 dark:border-slate-600/40">
                 <p className="text-lg font-semibold text-purple-600 dark:text-purple-400">🌙 Night Queue</p>
                 <p className="text-slate-600 dark:text-slate-300">8PM-6AM: 2-4 hours</p>
               </div>
-              <div className="bg-white/30 dark:bg-slate-800/30 backdrop-blur-sm rounded-lg p-4 border border-white/30 dark:border-slate-600/30">
+              <div className="bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm rounded-lg p-4 border border-white/40 dark:border-slate-600/40">
                 <p className="text-lg font-semibold text-green-600 dark:text-green-400">🚀 Weekend Boost</p>
                 <p className="text-slate-600 dark:text-slate-300">Even faster processing!</p>
               </div>

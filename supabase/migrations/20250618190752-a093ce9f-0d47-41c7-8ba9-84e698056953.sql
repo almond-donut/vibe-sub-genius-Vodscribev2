@@ -8,7 +8,7 @@ CREATE TABLE public.profiles (
   credits_remaining INTEGER DEFAULT 1,
   credits_total INTEGER DEFAULT 1,
   preview_minutes_used INTEGER DEFAULT 0,
-  preview_minutes_limit INTEGER DEFAULT 15,
+  preview_minutes_limit INTEGER DEFAULT 30,
   billing_cycle_start TIMESTAMP WITH TIME ZONE DEFAULT now(),
   created_at TIMESTAMP WITH TIME ZONE DEFAULT now(),
   updated_at TIMESTAMP WITH TIME ZONE DEFAULT now()
@@ -57,14 +57,13 @@ CREATE POLICY "Users can update own jobs" ON public.processing_jobs
 -- Function to handle new user registration
 CREATE OR REPLACE FUNCTION public.handle_new_user()
 RETURNS TRIGGER AS $$
-BEGIN
-  INSERT INTO public.profiles (id, email, full_name, preview_minutes_used, preview_minutes_limit)
+BEGIN  INSERT INTO public.profiles (id, email, full_name, preview_minutes_used, preview_minutes_limit)
   VALUES (
     NEW.id,
     NEW.email,
     COALESCE(NEW.raw_user_meta_data->>'full_name', ''),
     0,
-    15
+    30
   );
   RETURN NEW;
 END;
