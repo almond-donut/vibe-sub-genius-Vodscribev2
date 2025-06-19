@@ -19,9 +19,9 @@ export const PaymentModal = ({ isOpen, onClose, userId, selectedPlan = 'popular'
       name: 'Popular Plan',
       price: '$12.99',
       monthlyPrice: '12.99',
-      credits: 8,
-      features: [
-        '8 video processing credits',
+      credits: 8,      features: [
+        '8 video processing credits/month',
+        'Credits auto-reset every month',
         'Priority processing (15-20 min)',
         'Cultural translation',
         'All subtitle formats',
@@ -36,9 +36,9 @@ export const PaymentModal = ({ isOpen, onClose, userId, selectedPlan = 'popular'
       name: 'Premium Plan',
       price: '$29.99', 
       monthlyPrice: '29.99',
-      credits: 999,
-      features: [
+      credits: 999,      features: [
         'Unlimited video processing',
+        'Credits auto-reset every month',
         'Super fast processing (10-15 min)',
         'API access for developers',
         'Batch processing',

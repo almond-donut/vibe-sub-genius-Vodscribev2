@@ -18,6 +18,8 @@ interface Profile {
   subscription_tier: string;
   credits_remaining: number;
   credits_total: number;
+  last_credit_reset?: string;
+  credits_used_this_cycle?: number;
 }
 
 interface VideoUploadProps {
@@ -54,9 +56,10 @@ export const VideoUpload = ({ user }: VideoUploadProps) => {
   };
   const duration = getDurationFromCategory(durationCategory);  const fetchProfile = async () => {
     try {
-      const { data, error } = await supabase
+      // For paid users, check and reset credits if needed
+      const { data: profileData, error } = await supabase
         .from('profiles')
-        .select('preview_minutes_used, preview_minutes_limit, subscription_tier, credits_remaining, credits_total')
+        .select('preview_minutes_used, preview_minutes_limit, subscription_tier, credits_remaining, credits_total, last_credit_reset, credits_used_this_cycle')
         .eq('id', user.id)
         .single();
 
@@ -86,7 +89,21 @@ export const VideoUpload = ({ user }: VideoUploadProps) => {
           }
         }
       } else {
-        setProfile(data);
+        // Auto-check and reset credits for paid users
+        if (profileData.subscription_tier !== 'free') {
+          await supabase.rpc('check_and_reset_credits', { user_id: user.id });
+          
+          // Fetch updated profile after potential credit reset
+          const { data: updatedData } = await supabase
+            .from('profiles')
+            .select('preview_minutes_used, preview_minutes_limit, subscription_tier, credits_remaining, credits_total, last_credit_reset, credits_used_this_cycle')
+            .eq('id', user.id)
+            .single();
+            
+          setProfile(updatedData || profileData);
+        } else {
+          setProfile(profileData);
+        }
       }
     } catch (err) {
       console.error('Profile fetch error:', err);
@@ -209,8 +226,7 @@ export const VideoUpload = ({ user }: VideoUploadProps) => {
                     {profile.subscription_tier === 'free' ? 'Free Preview' : profile.subscription_tier}
                   </span>
                 </div>
-              </div>
-                {profile.subscription_tier === 'free' && (
+              </div>                {profile.subscription_tier === 'free' && (
                 <div className="space-y-2">
                   <div className="flex justify-between text-sm">
                     <span className="text-slate-600 dark:text-slate-400">Preview Minutes</span>
@@ -226,6 +242,30 @@ export const VideoUpload = ({ user }: VideoUploadProps) => {
                       }}
                     ></div>
                   </div>
+                </div>
+              )}
+              
+              {profile.subscription_tier !== 'free' && (
+                <div className="space-y-2">
+                  <div className="flex justify-between text-sm">
+                    <span className="text-slate-600 dark:text-slate-400">Credits This Month</span>
+                    <span className="font-medium text-slate-700 dark:text-slate-200">
+                      {profile.credits_remaining} / {profile.credits_total} remaining
+                    </span>
+                  </div>
+                  <div className="w-full bg-slate-200 dark:bg-slate-600 rounded-full h-2">
+                    <div 
+                      className="bg-gradient-to-r from-purple-500 to-blue-500 h-2 rounded-full transition-all duration-300"
+                      style={{ 
+                        width: `${(profile.credits_remaining / profile.credits_total) * 100}%` 
+                      }}
+                    ></div>
+                  </div>
+                  {profile.last_credit_reset && (
+                    <p className="text-xs text-slate-500 dark:text-slate-400">
+                      🔄 Credits auto-reset monthly • Last reset: {new Date(profile.last_credit_reset).toLocaleDateString()}
+                    </p>
+                  )}
                 </div>
               )}
             </div>

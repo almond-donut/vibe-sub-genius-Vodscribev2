@@ -70,22 +70,14 @@ export const PayPalButton = ({ planId, userId, onSuccess }: PayPalButtonProps) =
 
     try {
       const order = await actions.order.capture();
-      console.log('PayPal Order:', order);
+      console.log('PayPal Order:', order);      // Update user subscription using the new upgrade function
+      const { error: upgradeError } = await supabase.rpc('upgrade_subscription', {
+        user_id: userId,
+        new_tier: planId
+      });
 
-      // Update user subscription in Supabase
-      const { error: updateError } = await supabase
-        .from('profiles')
-        .update({
-          subscription_tier: planId,
-          credits_remaining: plan.credits,
-          credits_total: plan.credits,
-          subscription_date: new Date().toISOString(),
-          paypal_order_id: order.id
-        })
-        .eq('id', userId);
-
-      if (updateError) {
-        throw updateError;
+      if (upgradeError) {
+        throw upgradeError;
       }
 
       // Log payment transaction
