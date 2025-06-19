@@ -60,7 +60,7 @@ export const PricingSection = () => {  // Check current time in Singapore (UTC+7
         "3 subtitle formats (Raw, Translated, Dual)",
         "Cultural intelligence",
         "Personality preservation",
-        "Email support"
+        "Email support (vodscribe@proton.me)"
       ],
       popular: false,
       cta: "Start Basic"
@@ -96,7 +96,7 @@ export const PricingSection = () => {  // Check current time in Singapore (UTC+7
         "Unlimited processing",
         "API access",
         "Custom integrations",
-        "Priority support",
+        "Priority support (vodscribe@proton.me)",
         "Team collaboration tools"
       ],
       popular: false,
@@ -141,9 +141,11 @@ export const PricingSection = () => {  // Check current time in Singapore (UTC+7
               }`}>
                 {processingStatus.timeInfo}
               </p>
-              {!isWorkingHours && (
-                <div className="mt-3 p-3 bg-white dark:bg-slate-800 rounded-lg border border-yellow-200 dark:border-yellow-700">                  <p className="text-sm text-slate-600 dark:text-slate-300">
+              {!isWorkingHours && (                <div className="mt-3 p-3 bg-white dark:bg-slate-800 rounded-lg border border-yellow-200 dark:border-yellow-700">                  <p className="text-sm text-slate-600 dark:text-slate-300">
                     <strong>🛡️ Refund Policy:</strong> If your subtitles aren't ready within 12 hours, you get an automatic full refund - no questions asked!
+                  </p>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                    Need help? Contact us: <a href="mailto:vodscribe@proton.me" className="text-blue-600 dark:text-blue-400 hover:underline">vodscribe@proton.me</a>
                   </p>
                 </div>
               )}
@@ -352,11 +354,12 @@ export const PricingSection = () => {  // Check current time in Singapore (UTC+7
           <div className="bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 rounded-2xl p-8 max-w-4xl mx-auto border border-green-200/50 dark:border-green-800/50">
             <h3 className="text-2xl font-bold text-slate-800 dark:text-white mb-4">
               💰 Anti-Boring Guarantee + Fast Processing Promise
-            </h3>
-            <p className="text-lg text-slate-600 dark:text-slate-300 mb-6">
+            </h3>            <p className="text-lg text-slate-600 dark:text-slate-300 mb-6">
               If our subtitles are as boring and culturally-clueless as generic AI tools, we'll give you a full refund - no questions asked.
               <br className="hidden md:block"/>
               <strong>Plus:</strong> If processing takes longer than 12 hours during queue mode, automatic full refund!
+              <br className="hidden md:block"/>
+              <span className="text-sm">Questions? Email us: <a href="mailto:vodscribe@proton.me" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">vodscribe@proton.me</a></span>
             </p>
             <div className="grid md:grid-cols-3 gap-6 text-sm">
               <div className="text-slate-600 dark:text-slate-300">

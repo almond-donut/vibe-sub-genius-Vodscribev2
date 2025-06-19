@@ -354,9 +354,21 @@ export const VideoUpload = ({ user }: VideoUploadProps) => {
                   )}
                 </SelectContent>
               </Select>              {profile?.subscription_tier === 'free' && (
-                <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">
-                  Free preview: {remainingMinutes} minutes remaining
-                </p>
+                <div className="mt-2 space-y-2">
+                  <p className="text-sm text-slate-600 dark:text-slate-400">
+                    Free preview: {remainingMinutes} minutes remaining
+                  </p>
+                  <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700/50 rounded-lg p-3">
+                    <div className="flex items-start gap-2">
+                      <span className="text-amber-600 dark:text-amber-400 text-sm">⚠️</span>
+                      <div className="text-amber-800 dark:text-amber-200 text-xs">
+                        <p className="font-medium mb-1">Important: Choose duration carefully!</p>
+                        <p>Your video file MUST match the duration you select. If you upload a 1-hour video but select "10 minutes", your file will NOT be processed and you'll waste your preview minutes.</p>
+                        <p className="mt-1 font-medium">✅ Only select the duration that matches your actual video length.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               )}
             </div>
 

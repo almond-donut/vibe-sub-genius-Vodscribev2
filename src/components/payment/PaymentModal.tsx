@@ -42,7 +42,7 @@ export const PaymentModal = ({ isOpen, onClose, userId, selectedPlan = 'popular'
         'Super fast processing (10-15 min)',
         'API access for developers',
         'Batch processing',
-        'Priority support',
+        'Priority support (vodscribe@proton.me)',
         'Advanced customization'
       ],
       icon: '⭐',
@@ -139,12 +139,11 @@ export const PaymentModal = ({ isOpen, onClose, userId, selectedPlan = 'popular'
               userId={userId}
               onSuccess={handlePaymentSuccess}
             />
-          </div>
-
-          {/* Terms */}
+          </div>          {/* Terms */}
           <div className="text-xs text-slate-500 dark:text-slate-400 space-y-1">
             <p>By proceeding with payment, you agree to our Terms of Service and Privacy Policy.</p>
             <p>Subscription will automatically renew monthly until cancelled.</p>
+            <p>Need support? Contact us: <a href="mailto:vodscribe@proton.me" className="text-blue-600 dark:text-blue-400 hover:underline">vodscribe@proton.me</a></p>
           </div>
         </div>
       </DialogContent>

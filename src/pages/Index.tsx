@@ -409,12 +409,11 @@ const Index = () => {  const [currentExample, setCurrentExample] = useState(0);
                 <li><a href="#" className="hover:text-white transition-colors">API</a></li>
               </ul>
             </div>
-            
-            <div>
+              <div>
               <h3 className="font-semibold mb-4">Support</h3>
               <ul className="space-y-2 text-slate-400">
                 <li><a href="#" className="hover:text-white transition-colors">Help Center</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Contact</a></li>
+                <li><a href="mailto:vodscribe@proton.me" className="hover:text-white transition-colors">Contact: vodscribe@proton.me</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Discord</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Status</a></li>
               </ul>
