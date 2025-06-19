@@ -26,73 +26,73 @@ export const TestimonialSection = () => {
       avatar: "D"
     },
     {
-      name: "Maya P.",
-      role: "Japanese Content Fan",
-      content: "I was spending way too much on expensive subtitle services that didn't understand internet culture. VODSCRIBE actually gets the memes and slang.",
+      name: "Yuki T.",
+      role: "Japanese Content Fan", 
+      content: "Perfect for Japanese streams too! Other tools completely missed the nuances and internet slang. VODSCRIBE actually understands otaku culture.",
       rating: 5,
-      avatar: "M"
+      avatar: "Y"
     },
     {
-      name: "Jordan T.",
-      role: "Variety Stream Viewer",
-      content: "Other tools made my favorite streamers sound like textbooks. VODSCRIBE preserves their chaotic energy and makes the content actually enjoyable to watch.",
+      name: "Chen W.",
+      role: "Chinese Stream Viewer",
+      content: "Amazing work with Chinese content. Captures the humor and memes perfectly - finally can enjoy Bilibili streams with proper cultural context!",
       rating: 5,
-      avatar: "J"
+      avatar: "C"
     },
     {
       name: "Lisa R.",
       role: "Language Learning Enthusiast",
-      content: "Perfect for understanding natural Korean! Unlike boring dictionary translations, I can see how real people actually talk and joke around.",
+      content: "Perfect for understanding natural Korean, Chinese, and Japanese! Unlike boring dictionary translations, I can see how real people actually talk and joke around.",
       rating: 5,
       avatar: "L"
     }
   ];
 
   return (
-    <section className="py-16 bg-slate-50">
+    <section className="py-16 bg-slate-50/80 dark:bg-slate-800/80 backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-800 dark:text-white mb-4">
             Finally, Subtitles That Don't Kill The Vibe
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            Join thousands of viewers who actually understand the humor now
+          <p className="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
+            Join thousands of viewers who actually understand Asian content now
           </p>
           
           <div className="flex justify-center items-center mt-8 space-x-8">
-            <div className="text-center">
+            <div className="text-center bg-white/30 dark:bg-slate-800/30 backdrop-blur-sm rounded-lg p-4 border border-white/30 dark:border-slate-600/30">
               <div className="flex justify-center mb-2">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="w-6 h-6 text-yellow-400 fill-current" />
                 ))}
               </div>
-              <p className="text-lg font-semibold text-slate-800">4.9/5 Rating</p>
-              <p className="text-slate-600">from 500+ beta users</p>
+              <p className="text-lg font-semibold text-slate-800 dark:text-white">4.9/5 Rating</p>
+              <p className="text-slate-600 dark:text-slate-300">from 500+ beta users</p>
             </div>
             
-            <div className="text-center">
-              <p className="text-3xl font-bold text-blue-600">2,000+</p>
-              <p className="text-slate-600">Streamers subtitled</p>
+            <div className="text-center bg-white/30 dark:bg-slate-800/30 backdrop-blur-sm rounded-lg p-4 border border-white/30 dark:border-slate-600/30">
+              <p className="text-3xl font-bold text-blue-600 dark:text-blue-400">3,000+</p>
+              <p className="text-slate-600 dark:text-slate-300">Asian streams subtitled</p>
             </div>
             
-            <div className="text-center">
-              <p className="text-3xl font-bold text-green-600">15min</p>
-              <p className="text-slate-600">Average processing</p>
+            <div className="text-center bg-white/30 dark:bg-slate-800/30 backdrop-blur-sm rounded-lg p-4 border border-white/30 dark:border-slate-600/30">
+              <p className="text-3xl font-bold text-green-600 dark:text-green-400">15min</p>
+              <p className="text-slate-600 dark:text-slate-300">Average processing</p>
             </div>
           </div>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {testimonials.map((testimonial, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow">
+            <Card key={index} className="hover:shadow-lg transition-shadow bg-white/50 dark:bg-slate-800/50 backdrop-blur-md border border-white/30 dark:border-slate-600/30">
               <CardContent className="p-6">
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-green-500 rounded-full flex items-center justify-center text-white font-bold mr-4">
                     {testimonial.avatar}
                   </div>
                   <div>
-                    <p className="font-semibold text-slate-800">{testimonial.name}</p>
-                    <p className="text-sm text-slate-600">{testimonial.role}</p>
+                    <p className="font-semibold text-slate-800 dark:text-white">{testimonial.name}</p>
+                    <p className="text-sm text-slate-600 dark:text-slate-300">{testimonial.role}</p>
                   </div>
                 </div>
                 
@@ -102,32 +102,32 @@ export const TestimonialSection = () => {
                   ))}
                 </div>
                 
-                <p className="text-slate-700 italic">"{testimonial.content}"</p>
+                <p className="text-slate-700 dark:text-slate-300 italic">"{testimonial.content}"</p>
               </CardContent>
             </Card>
           ))}
         </div>
 
         <div className="text-center">
-          <div className="bg-gradient-to-r from-blue-50 to-green-50 rounded-2xl p-8 max-w-4xl mx-auto">
-            <h3 className="text-2xl font-bold text-slate-800 mb-4">
+          <div className="bg-gradient-to-r from-blue-50/80 to-green-50/80 dark:from-blue-900/20 dark:to-green-900/20 backdrop-blur-md rounded-2xl p-8 max-w-4xl mx-auto border border-white/30 dark:border-slate-600/30">
+            <h3 className="text-2xl font-bold text-slate-800 dark:text-white mb-4">
               Ready to Join the Community?
             </h3>
-            <p className="text-lg text-slate-600 mb-6">
-              Stop missing out on the jokes. Start understanding the culture.
+            <p className="text-lg text-slate-600 dark:text-slate-300 mb-6">
+              Stop missing out on the jokes. Start understanding Asian culture.
             </p>
             <div className="grid md:grid-cols-3 gap-6 text-center">
-              <div>
-                <p className="text-2xl font-bold text-blue-600">📈 98%</p>
-                <p className="text-slate-600">Say it's better than competitors</p>
+              <div className="bg-white/30 dark:bg-slate-800/30 backdrop-blur-sm rounded-lg p-4 border border-white/30 dark:border-slate-600/30">
+                <p className="text-2xl font-bold text-blue-600 dark:text-blue-400">📈 98%</p>
+                <p className="text-slate-600 dark:text-slate-300">Say it's better than competitors</p>
               </div>
-              <div>
-                <p className="text-2xl font-bold text-green-600">🎯 3x</p>
-                <p className="text-slate-600">More cultural accuracy</p>
+              <div className="bg-white/30 dark:bg-slate-800/30 backdrop-blur-sm rounded-lg p-4 border border-white/30 dark:border-slate-600/30">
+                <p className="text-2xl font-bold text-green-600 dark:text-green-400">🎯 3x</p>
+                <p className="text-slate-600 dark:text-slate-300">More cultural accuracy</p>
               </div>
-              <div>
-                <p className="text-2xl font-bold text-purple-600">💰 50%</p>
-                <p className="text-slate-600">Cheaper than generic tools</p>
+              <div className="bg-white/30 dark:bg-slate-800/30 backdrop-blur-sm rounded-lg p-4 border border-white/30 dark:border-slate-600/30">
+                <p className="text-2xl font-bold text-purple-600 dark:text-purple-400">💰 50%</p>
+                <p className="text-slate-600 dark:text-slate-300">Cheaper than generic tools</p>
               </div>
             </div>
           </div>
