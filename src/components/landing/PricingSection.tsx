@@ -167,15 +167,19 @@ export const PricingSection = () => {  // Check current time in Singapore (UTC+7
         <div className="grid md:grid-cols-3 gap-8 mb-12">
           {plans.map((plan, index) => (            <Card 
               key={index} 
-              className={`relative text-center hover:shadow-lg transition-all duration-300 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 ${
-                plan.popular ? 'border-green-500 dark:border-green-400 border-2 transform scale-105 ring-2 ring-green-500/20 dark:ring-green-400/20' : ''
+              className={`relative text-center hover:shadow-2xl hover:shadow-slate-500/25 transition-all duration-300 transform hover:scale-105 hover:-translate-y-3 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 cursor-pointer group ${
+                plan.popular ? 'border-green-500 dark:border-green-400 border-2 transform scale-105 ring-2 ring-green-500/20 dark:ring-green-400/20 hover:shadow-green-500/30' : ''
               }`}
-            >
-              {plan.popular && (
-                <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-green-500 text-white">
+            >              {plan.popular && (
+                <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-green-500 text-white animate-pulse">
                   Most Popular
                 </Badge>
               )}
+              
+              {/* Animated background gradient */}
+              <div className="absolute inset-0 bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-800 dark:to-slate-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
+              
+              <div className="relative z-10">
                 <CardHeader className="pb-4">
                 <CardTitle className="text-2xl font-bold text-slate-800 dark:text-white">{plan.name}</CardTitle>
                 <div className="flex items-baseline justify-center">
@@ -213,11 +217,10 @@ export const PricingSection = () => {  // Check current time in Singapore (UTC+7
                       <span className="text-slate-600 dark:text-slate-300 text-left">{feature}</span>
                     </li>
                   ))}
-                </ul>
-                  <Button 
-                  className={`w-full ${
+                </ul>                  <Button 
+                  className={`w-full transform group-hover:scale-105 transition-all duration-200 ${
                     plan.popular 
-                      ? 'bg-gradient-to-r from-blue-600 to-green-500 text-white hover:from-blue-700 hover:to-green-600 shadow-lg' 
+                      ? 'bg-gradient-to-r from-blue-600 to-green-500 text-white hover:from-blue-700 hover:to-green-600 shadow-lg hover:shadow-xl' 
                       : 'border-2 border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20'
                   }`}
                   variant={plan.popular ? 'default' : 'outline'}
@@ -225,6 +228,7 @@ export const PricingSection = () => {  // Check current time in Singapore (UTC+7
                   {plan.cta}
                 </Button>
               </CardContent>
+              </div>
             </Card>
           ))}
         </div>

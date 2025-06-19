@@ -244,28 +244,43 @@ export const VideoUpload = ({ user }: VideoUploadProps) => {
                 </p>
               </div>
                 <div className="grid md:grid-cols-2 gap-4 mb-6">                <div 
-                  className="bg-white dark:bg-slate-800 p-4 rounded-lg border border-purple-200 dark:border-purple-700 cursor-pointer hover:border-purple-400 hover:shadow-lg transition-all duration-200 transform hover:scale-105"
+                  className="bg-white dark:bg-slate-800 p-4 rounded-lg border border-purple-200 dark:border-purple-700 cursor-pointer hover:border-purple-400 hover:shadow-2xl hover:shadow-purple-500/25 transition-all duration-300 transform hover:scale-105 hover:-translate-y-2 hover:bg-gradient-to-br hover:from-purple-50 hover:to-blue-50 dark:hover:from-purple-900/30 dark:hover:to-blue-900/30 relative group"
                   onClick={() => {
                     setSelectedPlan('popular');
                     setShowPaymentModal(true);
                   }}
                 >
-                  <h4 className="font-bold text-purple-800 dark:text-purple-200 mb-2">Popular Plan 🔥</h4>
-                  <p className="text-2xl font-bold text-purple-600 dark:text-purple-400">$12.99<span className="text-sm">/month</span></p>
-                  <p className="text-sm text-purple-600 dark:text-purple-400">8 credits • Priority processing</p>
-                  <p className="text-xs text-purple-500 dark:text-purple-400 mt-2">👆 Click to purchase</p>
-                </div>
-                <div 
-                  className="bg-white dark:bg-slate-800 p-4 rounded-lg border border-purple-200 dark:border-purple-700 cursor-pointer hover:border-purple-400 hover:shadow-lg transition-all duration-200 transform hover:scale-105"
+                  <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-500 rounded-lg opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                  <div className="relative z-10">
+                    <h4 className="font-bold text-purple-800 dark:text-purple-200 mb-2 flex items-center gap-2">
+                      Popular Plan 🔥
+                      <span className="px-2 py-1 bg-gradient-to-r from-orange-400 to-red-500 text-white text-xs rounded-full animate-pulse">HOT</span>
+                    </h4>
+                    <p className="text-2xl font-bold text-purple-600 dark:text-purple-400 group-hover:text-purple-700 dark:group-hover:text-purple-300 transition-colors">
+                      $12.99<span className="text-sm">/month</span>
+                    </p>
+                    <p className="text-sm text-purple-600 dark:text-purple-400">8 credits • Priority processing</p>
+                    <p className="text-xs text-purple-500 dark:text-purple-400 mt-2 group-hover:text-purple-700 dark:group-hover:text-purple-300 transition-colors">👆 Click to purchase</p>
+                  </div>
+                </div>                <div 
+                  className="bg-white dark:bg-slate-800 p-4 rounded-lg border border-purple-200 dark:border-purple-700 cursor-pointer hover:border-blue-400 hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105 hover:-translate-y-2 hover:bg-gradient-to-br hover:from-blue-50 hover:to-indigo-50 dark:hover:from-blue-900/30 dark:hover:to-indigo-900/30 relative group"
                   onClick={() => {
                     setSelectedPlan('premium');
                     setShowPaymentModal(true);
                   }}
                 >
-                  <h4 className="font-bold text-purple-800 dark:text-purple-200 mb-2">Premium Plan ⭐</h4>
-                  <p className="text-2xl font-bold text-purple-600 dark:text-purple-400">$29.99<span className="text-sm">/month</span></p>
-                  <p className="text-sm text-purple-600 dark:text-purple-400">Unlimited • API access</p>
-                  <p className="text-xs text-purple-500 dark:text-purple-400 mt-2">👆 Click to purchase</p>
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                  <div className="relative z-10">
+                    <h4 className="font-bold text-purple-800 dark:text-purple-200 mb-2 flex items-center gap-2">
+                      Premium Plan ⭐
+                      <span className="px-2 py-1 bg-gradient-to-r from-blue-500 to-indigo-600 text-white text-xs rounded-full">BEST</span>
+                    </h4>
+                    <p className="text-2xl font-bold text-purple-600 dark:text-purple-400 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors">
+                      $29.99<span className="text-sm">/month</span>
+                    </p>
+                    <p className="text-sm text-purple-600 dark:text-purple-400">Unlimited • API access</p>
+                    <p className="text-xs text-purple-500 dark:text-purple-400 mt-2 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors">👆 Click to purchase</p>
+                  </div>
                 </div>
               </div>              <Button 
                 className="bg-gradient-to-r from-purple-600 to-blue-500 text-white hover:from-purple-700 hover:to-blue-600 transform hover:scale-105 transition-all duration-200"
